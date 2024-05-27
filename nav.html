@@ -1,0 +1,244 @@
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Montserrat", sans-serif;
+    }
+    
+    
+    
+    /* Navbar start */
+    
+    .header{
+        display: flex;
+        height: 60px;
+        justify-content: space-between;
+        background-color: white;
+        box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        padding: 0 60px;
+        z-index: 1;
+    }
+    
+    .navbar{
+        display: flex;
+    }
+    
+    .logo{
+        display: flex;
+        align-self: center;
+        text-decoration: none;
+        height: 60px;
+        scale: 2.1;
+        z-index: 1000;
+    }
+    
+    .nav-list{
+        display: flex;
+        position: relative;
+    }
+    
+    .nav-list li{
+        list-style: none;
+        line-height: 45px;
+    }
+    
+    .nav-list a{
+        position: relative;
+        text-decoration: none;
+        padding: 16px 24px;
+        letter-spacing: 0.03rem;
+        font-size: 18px;
+        color: black;
+    }
+    
+    .nav-list a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background: black;
+        transform: scaleX(0);
+        transition: transform 0.5s ease-in-out;
+        transform-origin: right;
+    }
+    
+    .nav-list a:hover::after{
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
+    .nav-list .dropdown{
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 999;
+        border-radius: 8px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        background-color: rgba(250, 250, 250, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        text-align: center;
+        top: 140px;
+        transition: 0.4s ease;
+        line-height: 60px;
+    }
+
+    .nav-list .dropdown li{
+        line-height: 60px;
+    }
+    
+    .nav-list li:hover .dropdown{
+        visibility: visible;
+        opacity: 1;
+        top: 50px;
+    }
+    
+    .icon{
+        color: rgb(200, 200, 200);
+        border: none;
+        transition: 0.4s;
+    }
+    
+    .nav-list a:hover .icon{
+        color: black;
+    }
+    
+    .nav-list li:hover .icon{
+        color: black;
+    }
+    
+    .menu-btn{
+        background: url(Images/menu1.png)no-repeat;
+        background-size: 50px;
+        background-position: center;
+        height: 40px;
+        width: 50px;
+        display: none;
+        position: relative;
+        transition: all 0.3s;
+    }
+    
+    @media (max-width: 980px){
+        .header{
+            padding: 0px 30px;
+        }
+
+        .navbar{
+            display: none;
+        }
+    
+        .nav-list{
+            display: block;
+            justify-content: start;
+            width: 100%;
+            height: 100vh;
+            left: 0;
+            position: absolute;
+            z-index: 999;
+            background-color: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    
+        .nav-list > li{
+            position: relative;
+            top: 100px;
+        }
+    
+        .menu-btn{
+            display: flex;
+            z-index: 999;
+            cursor: pointer;
+            transition: 0.3s ease;
+            align-self: center;
+        }
+    
+        .menu-btn.active{
+            background: url(Images/cross.png)no-repeat;
+            z-index: 999;
+            background-position: center;
+            background-size: 25px;
+            transition: 0.3s ease;
+        }
+    
+        .nav-list .dropdown{
+            position: absolute;
+            border-radius: 8px;
+            background-color: rgba(230, 230, 230, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            left: 120px;
+            top: 0px;
+            visibility: hidden;
+            transition: 0.3s linear;
+        }
+    
+        .nav-list .dropdown li{
+            position: relative;
+            text-align: center;
+        }
+    
+        .logo{
+            display: flex;
+            align-self: center;
+            font-size: 26px;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 2px 0px;
+            margin-left: 30px;
+        }
+    
+        .icon{
+            color: rgb(190, 190, 190);
+            border: none;
+            width: 12px;
+        }
+    }
+    </style>
+     <!-- /* Navbar end */ -->
+
+
+
+
+<header class="header">
+    <a class="logo" href="index.html"><img src="Images/floral_logo-removebg-preview.png"></a>
+    
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a class="active" href="index.html">HOME</a></li>
+            <li><a href="#">EVENTS <ion-icon class="icon" name="caret-down-outline"></ion-icon></a>
+            <div class="dropdown">
+                <ul class="nav-list2">
+                    <li><a href="wedding.html">Wedding</a></li>
+                    <li><a href="anniversary.html">Anniversary</a></li>
+                    <li><a href="engagement.html">Engagement</a></li>
+                    <li><a href="birthday.html">Birthday</a></li>
+                </ul>
+            </div>
+            </li>
+            <li><a href="about us.html">ABOUT</a></li>
+            <li><a href="contact us.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    <div class="menu-btn">
+        <div class="cross-btn"></div>
+    </div>
+   
+   
+    <script>
+    let menuBtn = document.querySelector(".menu-btn");
+        let navigation = document.querySelector(".navbar");
+        
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("navbar");
+        });</script>
+</header>
+
+
